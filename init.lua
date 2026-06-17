@@ -699,6 +699,7 @@ do
     -- gopls = {},
     pyright = {},
     vtsls = {},
+    dockerls = {},
     -- rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -763,7 +764,9 @@ do
   -- You can press `g?` for help in this menu.
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
-    -- You can add other tools here that you want Mason to install
+    'hadolint',
+    'yamlfmt',
+    'taplo',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -789,6 +792,9 @@ do
         lua = true,
         python = true,
         typescript = true,
+        yaml = true,
+        toml = true,
+        dockerfile = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -804,6 +810,8 @@ do
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       python = { 'ruff' },
+      yaml = { 'yamlfmt' },
+      toml = { 'taplo' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },

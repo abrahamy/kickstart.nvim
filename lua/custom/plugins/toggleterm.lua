@@ -22,8 +22,8 @@ local opencode = Terminal:new {
 
 local term = Terminal:new {}
 
-vim.keymap.set('n', '<leader>lg', function() lazygit:toggle() end, { noremap = true, silent = true, desc = 'Toggle LazyGit' })
+vim.keymap.set('n', '<leader>lg', function() lazygit:toggle() end, { desc = 'Toggle LazyGit' })
 
-vim.keymap.set('n', '<leader>to', function() opencode:toggle() end, { noremap = true, silent = true, desc = '[T]oggle [O]penCode' })
+vim.keymap.set('n', '<leader>to', function() opencode:toggle() end, { desc = '[T]oggle [O]penCode' })
 
-vim.keymap.set('n', '<leader>tt', function() term:toggle() end, { noremap = true, silent = true, desc = '[T]oggle [T]erminal' })
+vim.keymap.set('n', '<leader>tt', function() term:toggle() end, { desc = '[T]oggle [T]erminal' })

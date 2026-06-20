@@ -181,6 +181,15 @@ do
   -- [[ Basic Keymaps ]]
   --  See `:help vim.keymap.set()`
 
+  -- Shortcut for closing Neovim
+  vim.keymap.set({ 'n', 'x' }, '<leader>qq', '<Cmd>:q<CR>', { desc = 'Quit' })
+
+  -- Copy relative path of current file
+  vim.keymap.set('n', '<leader>yp', ":let @+=expand('%:.')<cr>", { desc = 'Copy relative path' })
+
+  -- Copy absolute path of current file
+  vim.keymap.set('n', '<leader>yP', ':let @+=@%<cr>', { desc = 'Copy absolute path' })
+
   -- Clear highlights on search when pressing <Esc> in normal mode
   --  See `:help hlsearch`
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
